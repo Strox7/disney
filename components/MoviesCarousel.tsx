@@ -1,5 +1,5 @@
 import { Movie } from "@/typing";
-import Image from "next/image";
+
 import MovieCard from "./MovieCard";
 import { cn } from "@/lib/utils";
 
@@ -31,7 +31,11 @@ function MoviesCarousel({ title, movies, isVertical }: Props) {
                 <MovieCard key={movie.id} movie={movie} />
                 <div className="max-w-2xl">
                   <p className="font-bold">
-                    {movie.title} ({movie.release_date?.split("-")[0]})
+                    {movie.title} (
+                    {typeof movie.release_date === "string"
+                      ? (movie.release_date as string).split("_")[0]
+                      : movie.release_date}
+                    )
                   </p>
                   <hr className="mb-3" />
                   <p>{movie.overview}</p>
