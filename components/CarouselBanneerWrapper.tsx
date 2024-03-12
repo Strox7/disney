@@ -3,7 +3,7 @@ import CarouselsBanner from "./CarouselsBanner";
 
 type Props = {
   id?: string;
-  keywords: string;
+  keywords?: string;
 };
 
 async function CarouselBanneerWrapper({ id, keywords }: Props) {
